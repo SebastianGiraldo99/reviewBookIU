@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import { IBookDTO } from '../Interfaces/DTO/BookDTO.interface';
 import { IBookModel } from '../Interfaces/BookModel.interface';
 import { ICategoryDTO } from '../Interfaces/DTO/CategoryDTO.interface';
+import { IAutorDTO } from '../Interfaces/DTO/AutorDTO.inteface';
  // Asegúrate de importar tu archivo de configuración de URLs
 
 @Injectable({
@@ -32,5 +33,8 @@ export class BookService {
   }
   getCategories(): Observable<ICategoryDTO[]> {
     return this.http.get<ICategoryDTO[]>(`${this.baseUrl}/GetCategories`);
+  }
+  getAutors(): Observable<IAutorDTO[]> {
+    return this.http.get<IAutorDTO[]>(`${this.baseUrl}/GetCategories`);
   }
 }

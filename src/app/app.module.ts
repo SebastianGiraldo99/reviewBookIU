@@ -22,6 +22,7 @@ import { ModalbookComponent } from './pages/modalbook/modalbook.component';
 import {MatSelectModule} from '@angular/material/select';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule  } from '@angular/forms';
+import { ModalReviewComponent } from './pages/modal-review/modal-review.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +31,8 @@ import { ReactiveFormsModule, FormsModule  } from '@angular/forms';
     ReviewComponentComponent,
     HomeComponentComponent,
     IndexComponent,
-    ModalbookComponent
+    ModalbookComponent,
+    ModalReviewComponent
   ],
   imports: [
     BrowserModule,

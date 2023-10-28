@@ -1,5 +1,4 @@
 export interface IReviewBookDTO {
-    ReviewId: number;
     BookId: number;
     Title: string;
     Qualification: string;
