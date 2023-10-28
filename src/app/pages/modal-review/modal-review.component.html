@@ -1,0 +1,32 @@
+
+
+<div mat-dialog-content>
+    <p>new Review</p>
+    <mat-form-field>
+      <mat-label>Titulo</mat-label>
+      <input matInput [(ngModel)]="reviewbookData.title">
+    </mat-form-field>
+    <mat-form-field >
+        <mat-label>Libro</mat-label>
+        <mat-select  [(ngModel)]="reviewbookData.bookId"  name="book">
+            <mat-option *ngFor="let book of books" [value]="book.BookId" >
+                {{book.BookName}}
+              </mat-option>
+        </mat-select>
+    </mat-form-field>
+      
+    <mat-form-field>
+        <mat-label>Calificacion</mat-label>
+        <input matInput [(ngModel)]="reviewbookData.qualification">
+      </mat-form-field>      
+      
+    <mat-form-field>
+        <mat-label>Descripcion</mat-label>
+        <textarea matInput placeholder="Resumen de la review" [(ngModel)]="reviewbookData.description"></textarea>
+      </mat-form-field>
+
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button color="warn" (click)="onNoClick()">Cancelar</button>
+    <button mat-button color="primary" (click)="saveBook()" [mat-dialog-close]="">Guardar</button>
+  </div>

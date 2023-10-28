@@ -6,18 +6,21 @@
       <input matInput [(ngModel)]="bookData.nombre">
     </mat-form-field>
     
-    <mat-form-field>
-        <mat-label>Autor</mat-label>
-        <input matInput [(ngModel)]="bookData.autor">
-        
-      </mat-form-field>
+    <mat-form-field >
+      <mat-label>Autor</mat-label>
+      <mat-select  [(ngModel)]="bookData.autorId"  name="autor">
+          <mat-option *ngFor="let cat of autors" [value]="cat.autorId" >
+              {{cat.autorName}}
+            </mat-option>
+      </mat-select>
+    </mat-form-field>  
       
     <mat-form-field>
         <mat-label>ISBN</mat-label>
         <input matInput [(ngModel)]="bookData.isbn">
       </mat-form-field>
 
-      <mat-form-field *ngIf="categories && categories.length > 0">
+      <mat-form-field >
         <mat-label>Categoria</mat-label>
         <mat-select  [(ngModel)]="bookData.categoria"  name="categoria">
             <mat-option *ngFor="let cat of categories" [value]="cat.categoryId" >

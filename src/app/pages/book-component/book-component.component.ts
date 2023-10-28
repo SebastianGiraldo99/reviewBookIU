@@ -4,6 +4,7 @@ import { ModalbookComponent } from '../modalbook/modalbook.component';
 import { BookService } from 'src/app/Services/book.service';
 import { IBookDTO } from 'src/app/Interfaces/DTO/BookDTO.interface';
 import { ICategoryDTO } from 'src/app/Interfaces/DTO/CategoryDTO.interface';
+import { IAutorDTO } from 'src/app/Interfaces/DTO/AutorDTO.inteface';
 
 
 export interface PeriodicElement {
@@ -35,6 +36,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
 export class BookComponentComponent implements OnInit {
 
   bookSource : IBookDTO[] = [] ;
+  autors : IAutorDTO[] =[];
   displayedColumns: string[] = [ 'title','autor','category', 'creationDate','resumen'];
   categories: ICategoryDTO[] = [];
 
@@ -52,6 +54,9 @@ export class BookComponentComponent implements OnInit {
     this.service.getCategories().subscribe(cat =>{
       this.categories = cat;
     });
+    this.service.getAutors().subscribe(res =>{
+      this.autors = res;
+    })
   }
   removeData(){
     //TODO
@@ -60,8 +65,8 @@ export class BookComponentComponent implements OnInit {
   addData(){
     const dialogRef = this.dialog.open(ModalbookComponent,
       {
-        width : '15%',
-        data: { categories: this.categories}
+        width : '20%',
+        data: { categories: this.categories, autors : this.autors}
       });
   }
 }

@@ -7,6 +7,7 @@ import { ICategoryDTO } from 'src/app/Interfaces/DTO/CategoryDTO.interface';
 import { BookService } from 'src/app/Services/book.service';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Inject } from '@angular/core';
+import { IAutorDTO } from 'src/app/Interfaces/DTO/AutorDTO.inteface';
 
 
 @Component({
@@ -16,11 +17,7 @@ import { Inject } from '@angular/core';
 })
 export class ModalbookComponent implements OnInit {
   selectedValue = '';
-  foods = [
-    {value: 'steak-0', viewValue: 'Steak'},
-    {value: 'pizza-1', viewValue: 'Pizza'},
-    {value: 'tacos-2', viewValue: 'Tacos'},
-  ];
+ 
   bookData: any = {
       nombre: '',
       autor: '',
@@ -32,6 +29,7 @@ export class ModalbookComponent implements OnInit {
   
   saveText!: string ;
   categories: ICategoryDTO[] = [];
+  autors : IAutorDTO[] = [];
 
   constructor(public dialogRef: MatDialogRef<ModalbookComponent>,
     private bookService:BookService,
@@ -41,6 +39,7 @@ export class ModalbookComponent implements OnInit {
   }
   ngOnInit(): void {
     this.categories = this.data.categories;
+    this.autors = this.data.autors
   }
   
 
