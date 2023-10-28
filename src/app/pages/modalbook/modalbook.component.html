@@ -1,0 +1,43 @@
+
+<div mat-dialog-content>
+    <p>new Book</p>
+    <mat-form-field>
+      <mat-label>Nombre</mat-label>
+      <input matInput [(ngModel)]="bookData.nombre">
+    </mat-form-field>
+    
+    <mat-form-field>
+        <mat-label>Autor</mat-label>
+        <input matInput [(ngModel)]="bookData.autor">
+        
+      </mat-form-field>
+      
+    <mat-form-field>
+        <mat-label>ISBN</mat-label>
+        <input matInput [(ngModel)]="bookData.isbn">
+      </mat-form-field>
+
+      <mat-form-field *ngIf="categories && categories.length > 0">
+        <mat-label>Categoria</mat-label>
+        <mat-select  [(ngModel)]="bookData.categoria"  name="categoria">
+            <mat-option *ngFor="let cat of categories" [value]="cat.categoryId" >
+                {{cat.categoryName}}
+              </mat-option>
+        </mat-select>
+      </mat-form-field>      
+      
+    <mat-form-field>
+        <mat-label>Fecha publicacion</mat-label>
+        <input matInput  type="date" [(ngModel)]="bookData.fechaPublicacion">
+      </mat-form-field>
+      
+    <mat-form-field>
+        <mat-label>Resumen</mat-label>
+        <textarea matInput placeholder="Resumen del libro" [(ngModel)]="bookData.resumen"></textarea>
+      </mat-form-field>
+
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button color="warn" (click)="onNoClick()">Cancelar</button>
+    <button mat-button color="primary" (click)="saveBook()" [mat-dialog-close]="">Guardar</button>
+  </div>

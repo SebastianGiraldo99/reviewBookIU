@@ -1,0 +1,14 @@
+<mat-toolbar color="primary">
+    <span>BooksReview</span>
+    <span class="example-spacer"></span>
+    <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item id="index" (click)="redirectTo(url)"
+         *ngFor="let url of pageUrl">{{url.name}}</button>
+
+        <!-- <button mat-menu-item id="index" (click)="redirectTo($event)">Home</button>
+        <button mat-menu-item id="books"(click)="redirectTo($event)">Books</button>
+        <button mat-menu-item id="reviews"(click)="redirectTo($event)">BooksReviews</button>
+        <button mat-menu-item id="profile"(click)="redirectTo($event)">Profile</button> -->
+    </mat-menu>
+  </mat-toolbar>

@@ -1,0 +1,32 @@
+.example-container mat-form-field + mat-form-field + button {
+ margin-left: 8px;
+}
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+  }
+
+.example-right-align {
+  text-align: right;
+}
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px; 
+  }
+  
+  .button-container button {
+    flex: 1;
+    margin-left: 2px; 
+  }
+
+input.example-right-align::-webkit-outer-spin-button,
+input.example-right-align::-webkit-inner-spin-button {
+  display: none;
+}
+
+input.example-right-align {
+  -moz-appearance: textfield;
+}
